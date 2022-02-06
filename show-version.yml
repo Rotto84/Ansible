@@ -1,0 +1,15 @@
+---
+# This playbook does a 'show version' command
+
+- hosts: routers
+
+  tasks:
+    - name: Show version
+      ios_command:
+        commands: show version
+      register: version
+
+    - name: Show version
+      ios_command:
+        commands: show version
+      register: version

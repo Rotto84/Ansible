@@ -1,0 +1,7 @@
+[routers]
+CSR1.ottolab.net
+CSR2.ottolab.net
+CSR3.ottolab.net
+
+[switches]
+CLT-Stack1 ansible_connection=192.168.1.100

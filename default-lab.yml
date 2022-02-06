@@ -1,0 +1,23 @@
+---
+# This playbook does a 'show version' command
+
+- hosts: routers
+
+  tasks:
+    - name: Show version
+      ios_command:
+        commands:
+        - no clock timezone EST -5 0
+        - no clock summer-time EDT recurring
+        - no ip name-server 192.168.1.8
+        - no ntp source GigabitEthernet1
+        - no ntp server 0.us.pool.ntp.org
+        - no ntp server 1.us.pool.ntp.org
+
+    - name: Show version
+      ios_command:
+        commands: send log "Config reset back to default by Ansible"
+
+    - name: save running to startup when modified
+      cisco.ios.ios_config:
+        save_when: modified
