@@ -1,5 +1,5 @@
 ---
-# This playbook sets some default paramaters.
+# This playbook sets equipment back to defaults for services.
 
 - hosts: routers
 
