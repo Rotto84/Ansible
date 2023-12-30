@@ -1,0 +1,28 @@
+---
+# This playbook configures the login banner for all network gear
+
+- name: "Set Login Banner"
+  hosts: all
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+    - name: "Configure Login Banner"
+      cisco.ios.ios_banner:
+        banner: login
+        text: |
+           **************************
+           * Authorized Logins only *
+           **************************
+        state: present
+
+      register: banner
+
+    - debug: var=banner
+
+    - name: "Configure Exec Banner"
+      cisco.ios.ios_banner:
+        banner: exec
+        text: |
+           THIS IS LAB - Break everything!
+        state: present
