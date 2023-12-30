@@ -1,5 +1,5 @@
 ---
-# This playbook does a 'show version' command
+# This playbook sets some default paramaters.
 
 - hosts: routers
 
